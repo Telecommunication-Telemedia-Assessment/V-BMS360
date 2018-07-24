@@ -45,7 +45,7 @@ The paper related to this work has been accepted within the proceedings of ICME 
 ```
 @InProceedings{lebreton2018VBMS360,
   title={V-BMS360: A video extention to the BMS360 image saliency model},
-  author={Lebreton, Pierre and Stephan Fremerey and Raake, Alexander},
+  author={Lebreton, Pierre and Fremerey, Stephan and Raake, Alexander},
   booktitle={IEEE International Conference on Multimedia and Expo (ICME) 2018, Grand Challenge Track},
   year={2018}
 }
