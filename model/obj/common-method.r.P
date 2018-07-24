@@ -1,0 +1,21 @@
+./obj//common-method.r.o: \
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/src//common-method.cpp \
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/./src/common-method.h \
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/./src/common.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-all.h \
+  ../lib/libgnomonic/lib/libinter/src/inter.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-bicubic.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-biheptic.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-bilinear.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-bipentic.h \
+  ../lib/libgnomonic/lib/libinter/src/inter-cubic.h
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/src//common-method.cpp :
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/./src/common-method.h :
+  /Users/pr-imac/Documents/Work/01_Code/04_Mac/Salient-Video/model/./src/common.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-all.h :
+  ../lib/libgnomonic/lib/libinter/src/inter.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-bicubic.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-biheptic.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-bilinear.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-bipentic.h :
+  ../lib/libgnomonic/lib/libinter/src/inter-cubic.h :

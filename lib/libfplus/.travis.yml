@@ -1,0 +1,120 @@
+language: python
+python: 3.6
+
+dist: trusty
+sudo: required
+
+matrix:
+    include:
+    - os: linux
+      compiler: gcc
+      env: GCC_VERSION=7
+        - CC=gcc-7
+        - CXX=g++-7
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-7']
+
+    - os: linux
+      compiler: gcc
+      env: GCC_VERSION=6
+        - CC=gcc-6
+        - CXX=g++-6
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-6']
+
+    - os: linux
+      compiler: gcc
+      env: GCC_VERSION=5
+        - CC=gcc-5
+        - CXX=g++-5
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-5']
+
+    - os: linux
+      compiler: clang
+      env: CLANG_VERSION=5.0 LIBCXX=On
+        - CC=clang-5.0
+        - CXX=clang++-5.0
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-5.0']
+          packages: ['clang-5.0', 'g++-6']
+
+    - os: linux
+      compiler: clang
+      env: CLANG_VERSION=4.0 LIBCXX=On
+        - CC=clang-4.0
+        - CXX=clang++-4.0
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-4.0']
+          packages: ['clang-4.0', 'g++-6']
+
+    - os: linux
+      compiler: clang
+      env: CLANG_VERSION=3.9 LIBCXX=On
+        - CC=clang-3.9
+        - CXX=clang++-3.9
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-3.9']
+          packages: ['clang-3.9', 'g++-6']
+
+    - os: linux
+      compiler: clang
+      env: CLANG_VERSION=3.8 LIBCXX=On
+        - CC=clang-3.8
+        - CXX=clang++-3.8
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-3.8']
+          packages: ['clang-3.8', 'g++-6']
+
+before_install:
+  - wget https://raw.githubusercontent.com/onqtam/doctest/master/doctest/doctest.h
+  - sudo mv ./doctest.h /usr/local/include/doctest.h
+  - |
+    if [ -n "$GCC_VERSION" ]; then
+      export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"
+    fi
+    if [ -n "$CLANG_VERSION" ]; then
+      export CXX="clang++-${CLANG_VERSION}" CC="clang-${CLANG_VERSION}"
+    fi
+    if [ "$LIBCXX" == "On" ]; then
+      sudo apt-get purge cmake
+      sudo apt-get install cmake3
+      cmake --version
+      sudo CXX="$CXX" CC="$CC"
+      sudo ./cmake/install_libcxx.sh
+      export CXXFLAGS="-stdlib=libc++"
+    fi
+    if [ ! `locale -a | grep ru_RU.cp1251` ]; then 
+      sudo localedef -c -i ru_RU -f CP1251 ru_RU.CP1251
+    fi
+    if [ ! `locale -a | grep el_GR.cp1253` ]; then 
+      sudo localedef -c -i el_GR -f CP1253 el_GR.CP1253
+    fi
+  - |
+    set -e
+    set -x
+
+    pip install conan --upgrade
+    pip install conan_package_tools
+    conan user
+
+
+install:
+  - mkdir -p build && cd build
+  - cmake .. -DFPLUS_BUILD_UNITTEST=ON
+
+script:
+  - which $CXX
+  - $CXX --version
+  - cmake --build . --target unittest --config Release -- -j4
+  - cd .. && python conan_build.py
