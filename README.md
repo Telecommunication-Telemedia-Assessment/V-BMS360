@@ -40,7 +40,7 @@ Unzip the folder Library next to the clone of the repository. Then, open the vis
 
 # Citation
 
-The journal paper related to this work has been accepted for publication. In case you use this work, please cite:
+The paper related to this work has been accepted within the proceedings of ICME 2018. In case you use this work, please cite:
 
 ```
 @InProceedings{lebreton2018VBMS360,
@@ -50,6 +50,9 @@ The journal paper related to this work has been accepted for publication. In cas
   year={2018}
 }
 ```
+
+
+
 
 
 For the evaluation scripts used in this study, please refer and cite:
