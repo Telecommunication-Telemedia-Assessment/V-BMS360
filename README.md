@@ -10,7 +10,7 @@ This project was intiated to address the ICME2018 Grand Challenge on Visual atte
 
 # Binaries
 
-In the release section of GitHub, different set of binaries can be found. One is the "GPU version" of the V-BMS360 model, and one is the CPU version. It should be noted that at this time, only the optical flow estimation is performed on GPU. Therefore, you may observe that the "GPU version" of the model may still heavily use CPU. The CPU version of the algorithm uses a different algorithm than the GPU version, therefore you may observe some differences between the two version (although they should not be large). 
+In the release section of GitHub, different set of binaries can be found. One is the "GPU version" of the V-BMS360 model, and one is the CPU version. It should be noted that at this time, only the optical flow estimation is performed on GPU. Therefore, you may observe that the "GPU version" of the model may still heavily use CPU. The CPU version of the algorithm uses a different algorithm for the dense optical flow estimation compared to the GPU version, therefore you may observe some differences between the two version (although they should not be large). 
 
 In the context of the ICME grand challenge, it is the GPU version which was submitted.  
 
