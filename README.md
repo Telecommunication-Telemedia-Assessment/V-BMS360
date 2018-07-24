@@ -81,6 +81,8 @@ The following dependencies are shipped in the `lib` folder:
 
    - frugally-deep: A VERY cool library allowing to run models built and trained using Keras/tensorflow from C++ using header only libraries (https://github.com/Dobiasd/frugally-deep)  
 
+   - gnomonic library: A library allowing to perform projections from equirectangular to rectilinear domain. This was used mostly for research purpose and is not involved in the final software.  
+
 
 # License
 
