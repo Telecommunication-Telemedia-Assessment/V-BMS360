@@ -29,7 +29,9 @@ To compile the project, only two dependencies are required:
 
 ## UNIX system
 
-run  `make`.  
+run  `make [cpu/gpu]`.  
+
+(You may need to check the path for OpenCV in case of a GPU build as a peculiar folder structure was used...)
 
 ## Windows: 
 
