@@ -18,7 +18,7 @@ In the context of the ICME grand challenge, it is the GPU version which was subm
 
 # Build from source
 
-To compile the project, only two dependencies are required: 
+To compile the project, only three dependencies are required: 
 
    - Eigen (tested with 3.3.3, any version beyond should work)
 
